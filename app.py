@@ -9,5 +9,3 @@ print("The Pation's name is: ' + name + ' and is ' + age + ' years old.")
 print('Year of birth:')
 print(int(birth))
 print('=======================================================')
-
-Test
