@@ -1,0 +1,17 @@
+from random import *
+secret_number = (randint(1, 10))
+guess_count = 0
+guess_limit = 3
+while guess_count < guess_limit:
+    while True:
+        try:
+            guess = int(input('Guess a number between 1-10: '))
+            break
+        except ValueError:
+            print('Must be a number. Try again...')
+    guess_count += 1
+    if guess == secret_number:
+        print('You won!')
+        break
+else:
+    print('Sorry, you failed!')
