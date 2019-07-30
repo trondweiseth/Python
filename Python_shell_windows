@@ -1,4 +1,4 @@
-def _menu_():
+def menu():
     print("""
 ======Main menu======
 
@@ -14,7 +14,7 @@ def cmd():
 
 
 while True:
-    _menu_()
+    menu()
     command=input(">")
     if command == "1":
         while True:
