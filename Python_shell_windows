@@ -1,1 +1,41 @@
+def _menu_():
+    print("""
+======Main menu======
 
+ 1) Powershell
+ 2) Cmd
+ 3) Exit 
+    """)
+
+def powershell():
+    subprocess.call(f"C:\WINDOWS\system32\WindowsPowerShell\\v1.0\powershell.exe {pscommand}", shell=True)
+def cmd():
+    subprocess.call(f"C:\Windows\System32\cmd.exe {cmdCommand}", shell=True)
+
+
+while True:
+    _menu_()
+    command=input(">")
+    if command == "1":
+        while True:
+            pscommand=input("Powershell ==> ")
+            if pscommand:
+                powershell()
+            elif pscommand.lower() == "exit" or "quit":
+                break
+            else:
+                break
+    elif command == "2":
+        while True:
+            cmdCommand = input("cmd ==> ")
+            if cmdCommand:
+                cmd()
+            elif cmdCommand.lower() == "exit" or "quit":
+                 break
+            else:
+                 break
+    elif command == "3":
+        print("Good bye..")
+        break
+    else:
+        print("Unknown command..")
