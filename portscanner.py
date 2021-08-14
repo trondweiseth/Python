@@ -3,7 +3,7 @@ import pyfiglet
 import sys
 import socket
 from datetime import datetime
-import threading
+import concurrent.futures
 
 ascii_banner = pyfiglet.figlet_format("PORT SCANNER")
 print(ascii_banner)
@@ -43,12 +43,5 @@ def multi_port(port):
         print("\ Server not responding !!!!")
         sys.exit()
 
-threads = []
-
-for port in range(1,65535):
-    t = threading.Thread(target=multi_port, args=[port])
-    t.start()
-    threads.append(t)
-
-for thread in threads:
-    thread.join()
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    results = [executor.submit(multi_port, port) for port in range(1,65535)]
